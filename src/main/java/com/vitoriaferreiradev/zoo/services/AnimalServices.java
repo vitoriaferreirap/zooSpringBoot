@@ -15,4 +15,9 @@ public class AnimalServices {
     public List<Animal> linstarAnimais() {
         return animalRepository.findAll();
     }
+
+    //insert
+    public Animal inserir(Animal animal) {
+        return animalRepository.save(animal);
+    }
 }
