@@ -3,14 +3,16 @@ package com.vitoriaferreiradev.zoo.entities;
 import java.io.Serializable;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
 public class Animal implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    private Long id;
     private String nome;
     private String especie;
     private String habitat;
@@ -20,7 +22,7 @@ public class Animal implements Serializable {
 
     }
 
-    public Animal(Integer id, String nome, String especie, String habitat, String dieta) {
+    public Animal(Long id, String nome, String especie, String habitat, String dieta) {
         this.id = id;
         this.nome = nome;
         this.especie = especie;
@@ -28,11 +30,11 @@ public class Animal implements Serializable {
         this.dieta = dieta;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
