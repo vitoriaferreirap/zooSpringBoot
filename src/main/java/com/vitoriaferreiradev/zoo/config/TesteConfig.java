@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.vitoriaferreiradev.zoo.entities.Animal;
-import com.vitoriaferreiradev.zoo.entities.enums.Habitat;
+import com.vitoriaferreiradev.zoo.entities.enums.Presenca;
 import com.vitoriaferreiradev.zoo.repositories.AnimalRepository;
 
 @Configuration
@@ -22,7 +22,7 @@ public class TesteConfig implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Animal animal1 = new Animal(null, "Bob", "Leão", "Carnívoro", Habitat.SAVANA);
+        Animal animal1 = new Animal(null, "Moli", "Tartaruga", "herbívora", Presenca.PRESENTE);
         animalRepository.saveAll(Arrays.asList(animal1));
     }
 

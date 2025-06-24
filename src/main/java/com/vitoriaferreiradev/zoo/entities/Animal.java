@@ -2,7 +2,7 @@ package com.vitoriaferreiradev.zoo.entities;
 
 import java.io.Serializable;
 
-import com.vitoriaferreiradev.zoo.entities.enums.Habitat;
+import com.vitoriaferreiradev.zoo.entities.enums.Presenca;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,18 +19,18 @@ public class Animal implements Serializable {
     private String especie;
     private String dieta; // carnivora, herbívora, onívora
 
-    private Integer habitat;
+    private Integer pesenca;
 
     public Animal() {
 
     }
 
-    public Animal(Long id, String nome, String especie, String dieta, Habitat habitat) {
+    public Animal(Long id, String nome, String especie, String dieta, Presenca pesenca) {
         this.id = id;
         this.nome = nome;
         this.especie = especie;
         this.dieta = dieta;
-        setHabitat(habitat);
+        setPresenca(pesenca);
     }
 
     public Long getId() {
@@ -65,12 +65,12 @@ public class Animal implements Serializable {
         this.dieta = dieta;
     }
 
-    public Habitat getHabitat() {
-        return Habitat.toEnum(this.habitat); // converte o código inteiro para o enum Habitat
+    public Presenca getPresenca() {
+        return Presenca.toEnum(this.pesenca); // converte o código inteiro para o enum Presenca
     }
 
-    public void setHabitat(Habitat habitat) {
-        this.habitat = habitat.getCodigo(); // converte o enum Habitat para o código inteiro
+    public void setPresenca(Presenca pesenca) {
+        this.pesenca = pesenca.getCodigo(); // converte o enum Habitat para o código inteiro
     }
 
     @Override

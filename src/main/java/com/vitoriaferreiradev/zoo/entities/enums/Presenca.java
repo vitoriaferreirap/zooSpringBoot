@@ -1,14 +1,12 @@
 package com.vitoriaferreiradev.zoo.entities.enums;
 
-public enum Habitat {
-    SAVANA(1),
-    AQUÁTICO(2),
-    AÉREO(3),
-    FLORESTA(4);
+public enum Presenca {
+    PRESENTE(1),
+    AUSENTE(2);
 
     private int codigo;
 
-    private Habitat(int codigo) {
+    private Presenca(int codigo) {
         this.codigo = codigo;
     }
 
@@ -17,14 +15,14 @@ public enum Habitat {
     }
 
     // Método estático para converter um código inteiro em um enum Habitat
-    public static Habitat toEnum(Integer codigo) {
+    public static Presenca toEnum(Integer codigo) {
         if (codigo == null) {
             return null;
         }
 
-        for (Habitat habitat : Habitat.values()) {
-            if (habitat.getCodigo() == codigo) {
-                return habitat;
+        for (Presenca p : Presenca.values()) {
+            if (p.getCodigo() == codigo) {
+                return p;
             }
         }
 
