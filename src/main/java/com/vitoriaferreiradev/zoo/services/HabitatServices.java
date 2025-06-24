@@ -17,4 +17,8 @@ public class HabitatServices {
     public List<Habitat> listarHabitats() {
         return habitatRepository.findAll();
     }
+
+    public Habitat inserir(Habitat habitat) {
+        return habitatRepository.save(habitat);
+    }
 }

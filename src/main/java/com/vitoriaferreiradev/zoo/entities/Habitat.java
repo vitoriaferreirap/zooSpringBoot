@@ -22,7 +22,7 @@ public class Habitat implements Serializable {
 
     // pode conter nenhum ou vários animais
     @OneToMany(mappedBy = "habitat")
-    List<Animal> animaisHabitats = new ArrayList();
+    List<Animal> animaisHabitats = new ArrayList<>();
 
     public Habitat() {
     }

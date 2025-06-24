@@ -7,7 +7,6 @@ import com.vitoriaferreiradev.zoo.entities.enums.Presenca;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -24,7 +23,6 @@ public class Animal implements Serializable {
     private Integer pesenca;
 
     @ManyToOne
-    @JoinColumn(name = "habitat_id") // chave estrangeira
     private Habitat habitat;
 
     public Animal() {
@@ -77,6 +75,10 @@ public class Animal implements Serializable {
 
     public void setPresenca(Presenca pesenca) {
         this.pesenca = pesenca.getCodigo(); // converte o enum Habitat para o código inteiro
+    }
+
+    public void setHabitat(Habitat habitat) {
+        this.habitat = habitat;
     }
 
     @Override
