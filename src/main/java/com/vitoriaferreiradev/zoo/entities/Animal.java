@@ -7,6 +7,8 @@ import com.vitoriaferreiradev.zoo.entities.enums.Presenca;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Animal implements Serializable {
@@ -20,6 +22,10 @@ public class Animal implements Serializable {
     private String dieta; // carnivora, herbívora, onívora
 
     private Integer pesenca;
+
+    @ManyToOne
+    @JoinColumn(name = "habitat_id") // chave estrangeira
+    private Habitat habitat;
 
     public Animal() {
 
