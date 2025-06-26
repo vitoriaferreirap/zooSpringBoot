@@ -2,6 +2,7 @@ package com.vitoriaferreiradev.zoo.entities;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vitoriaferreiradev.zoo.entities.enums.Presenca;
 
 import jakarta.persistence.Entity;
@@ -17,24 +18,26 @@ public class Animal implements Serializable {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String especie;
+    private String categoria; // ex: Leão, Tartaruga, Macaco, etc.
     private String dieta; // carnivora, herbívora, onívora
 
-    private Integer pesenca;
+    private Integer presenca;
 
     @ManyToOne
+    @JsonIgnore
     private Habitat habitat;
 
     public Animal() {
 
     }
 
-    public Animal(Long id, String nome, String especie, String dieta, Presenca pesenca) {
+    public Animal(Long id, String nome, String categoria, String dieta, Presenca presenca, Habitat habitat) {
         this.id = id;
         this.nome = nome;
-        this.especie = especie;
+        this.categoria = categoria;
         this.dieta = dieta;
-        setPresenca(pesenca);
+        setPresenca(presenca);
+        setHabitat(habitat);
     }
 
     public Long getId() {
@@ -53,12 +56,12 @@ public class Animal implements Serializable {
         this.nome = nome;
     }
 
-    public String getEspecie() {
-        return especie;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setEspecie(String especie) {
-        this.especie = especie;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getDieta() {
@@ -70,11 +73,15 @@ public class Animal implements Serializable {
     }
 
     public Presenca getPresenca() {
-        return Presenca.toEnum(this.pesenca); // converte o código inteiro para o enum Presenca
+        return Presenca.toEnum(this.presenca); // converte o código inteiro para o enum Presenca
     }
 
-    public void setPresenca(Presenca pesenca) {
-        this.pesenca = pesenca.getCodigo(); // converte o enum Habitat para o código inteiro
+    public void setPresenca(Presenca presenca) {
+        this.presenca = presenca.getCodigo(); // converte o enum Habitat para o código inteiro
+    }
+
+    public Habitat getHabitat() {
+        return habitat;
     }
 
     public void setHabitat(Habitat habitat) {
