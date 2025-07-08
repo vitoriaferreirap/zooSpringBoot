@@ -43,4 +43,10 @@ public class AnimalServices {
         entity.setPresenca(animal.getPresenca());
         entity.setHabitat(animal.getHabitat());
     }
+
+    // delete
+    public void delete(Long id) {
+        Animal animal = findById(id);
+        animalRepository.delete(animal);
+    }
 }
