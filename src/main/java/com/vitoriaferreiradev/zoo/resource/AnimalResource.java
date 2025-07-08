@@ -15,6 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.vitoriaferreiradev.zoo.entities.Animal;
 import com.vitoriaferreiradev.zoo.services.AnimalServices;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/animal")
 public class AnimalResource {
@@ -37,7 +39,7 @@ public class AnimalResource {
      */
 
     @PostMapping
-    public ResponseEntity<Animal> insert(@RequestBody Animal obj) {
+    public ResponseEntity<Animal> insert(@Valid @RequestBody Animal obj) {
         obj = animalServices.inserir(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")

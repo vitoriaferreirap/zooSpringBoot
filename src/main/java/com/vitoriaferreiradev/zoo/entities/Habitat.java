@@ -9,6 +9,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Habitat implements Serializable {
@@ -18,6 +21,10 @@ public class Habitat implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Nome do habitat é obrigatório")
+    @Size(min = 2, max = 20, message = "Nome do habitat deve ter entre 2 e 20 caracteres")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "Nome do habitat deve conter apenas letras e espaços")
     private String nome;
 
     // pode conter nenhum ou vários animais

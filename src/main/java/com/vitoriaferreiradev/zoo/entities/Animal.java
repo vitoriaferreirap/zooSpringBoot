@@ -9,6 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Animal implements Serializable {
@@ -17,8 +20,20 @@ public class Animal implements Serializable {
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Nome é obrigatório")
+    @Size(min = 2, max = 20, message = "Nome deve ter entre 2 e 20 caracteres")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "Nome deve conter apenas letras e espaços")
     private String nome;
+
+    @NotBlank(message = "Categoria é obrigatório")
+    @Size(min = 2, max = 20, message = "Categoria deve ter entre 2 e 20 caracteres")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "Categoria deve conter apenas letras e espaços")
     private String categoria; // ex: Leão, Tartaruga, Macaco, etc.
+
+    @NotBlank(message = "Dieta é obrigatório")
+    @Size(min = 2, max = 20, message = "Dieta deve ter entre 2 e 20 caracteres")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "Dieta deve conter apenas letras e espaços")
     private String dieta; // carnivora, herbívora, onívora
 
     private Integer presenca;

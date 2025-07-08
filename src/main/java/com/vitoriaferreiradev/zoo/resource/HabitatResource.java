@@ -15,6 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.vitoriaferreiradev.zoo.entities.Habitat;
 import com.vitoriaferreiradev.zoo.services.HabitatServices;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/habitat")
 public class HabitatResource {
@@ -29,7 +31,7 @@ public class HabitatResource {
     }
 
     @PostMapping
-    public ResponseEntity<Habitat> insert(@RequestBody Habitat obj) {
+    public ResponseEntity<Habitat> insert(@Valid @RequestBody Habitat obj) {
         obj = habitatServices.inserir(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
