@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,8 +30,8 @@ public class Habitat implements Serializable {
     @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "Nome do habitat deve conter apenas letras e espaços")
     private String nome;
 
-    // pode conter nenhum ou vários animais
-    @OneToMany(mappedBy = "habitat")
+    @JsonIgnore
+    @OneToMany(mappedBy = "habitat", cascade = CascadeType.ALL)
     List<Animal> animaisHabitats = new ArrayList();
 
     public Habitat() {

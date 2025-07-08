@@ -2,12 +2,12 @@ package com.vitoriaferreiradev.zoo.entities;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vitoriaferreiradev.zoo.entities.enums.Presenca;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -39,7 +39,7 @@ public class Animal implements Serializable {
     private Integer presenca;
 
     @ManyToOne
-    @JsonIgnore
+    @JoinColumn(name = "habitat_id")
     private Habitat habitat;
 
     public Animal() {
