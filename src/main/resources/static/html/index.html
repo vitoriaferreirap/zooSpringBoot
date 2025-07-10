@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoo Management System</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+
 </head>
 
 <body>
@@ -27,35 +29,8 @@
             <div class="container">
                 <h2>Nossos Animais</h2>
                 <div class="animals-grid">
-                    <div class="animal-card">
-                        <h3>Simba - O Rei Leão</h3>
-                        <p class="description">Majestoso leão africano</p>
-                        <div class="animal-info">
-                            <span class="info-item"><strong>Habitat:</strong> Savana</span>
-                            <span class="info-item"><strong>Dieta:</strong> Carnívoro</span>
-                            <span class="info-item"><strong>Categoria:</strong> Mamífero</span>
-                        </div>
-                    </div>
-
-                    <div class="animal-card">
-                        <h3>Cesar - O Macaco Sábio</h3>
-                        <p class="description">Macaco inteligente e ágil</p>
-                        <div class="animal-info">
-                            <span class="info-item"><strong>Habitat:</strong> Floresta</span>
-                            <span class="info-item"><strong>Dieta:</strong> Onívoro</span>
-                            <span class="info-item"><strong>Categoria:</strong> Mamífero</span>
-                        </div>
-                    </div>
-
-                    <div class="animal-card">
-                        <h3>Crush - A Tartaruga Marinha</h3>
-                        <p class="description">Tartaruga tranquila e amigável</p>
-                        <div class="animal-info">
-                            <span class="info-item"><strong>Habitat:</strong> Lago</span>
-                            <span class="info-item"><strong>Dieta:</strong> Herbívoro</span>
-                            <span class="info-item"><strong>Categoria:</strong> Réptil</span>
-                        </div>
-                    </div>
+                    <!-- Consumindo API -->
+                    <button onclick="carregarAnimaisDaApi()">Carregar Animais</button>
                 </div>
             </div>
         </section>
@@ -88,11 +63,13 @@
         </section>
     </main>
 
+
     <footer>
         <div class="container">
             <p>&copy; 2025 Zoo Management System. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script src="/js/configApi.js"></script>
 </body>
 
 </html>
