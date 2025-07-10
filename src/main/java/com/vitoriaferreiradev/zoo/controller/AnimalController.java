@@ -20,7 +20,7 @@ import com.vitoriaferreiradev.zoo.services.AnimalServices;
 
 import jakarta.validation.Valid;
 
-@RestController
+@RestController // Retorna JSON
 @RequestMapping(value = "/animais") // mapeamento de recursos para todos os endpoints deste controller
 public class AnimalController {
 
