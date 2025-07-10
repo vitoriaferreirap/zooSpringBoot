@@ -31,7 +31,7 @@ public class Habitat implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "habitat")
-    List<Animal> animaisHabitats = new ArrayList();
+    List<Animal> animaisHabitats = new ArrayList<>();
 
     public Habitat() {
     }
