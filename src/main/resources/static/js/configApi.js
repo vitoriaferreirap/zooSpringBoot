@@ -48,3 +48,57 @@ async function carregarAnimaisDaApi() {
         return;
     }
 }
+
+//carrega dados do forms para enviar para API
+document.addEventListener('DOMContentLoaded', function() {
+  
+    const form = document.getElementById('form-animal');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Coleta os valores dos campos do formulário
+        const nome = document.getElementById('nome').value;
+        const categoria = document.getElementById('categoria').value;
+        const dieta = document.getElementById('dieta').value;
+        const presenca = document.getElementById('presenca').value;
+        const id = parseInt(document.getElementById('habitat').value);
+
+        // Cria o objeto animal com os dados do formulário
+        const animal = {
+            nome: nome,
+            categoria: categoria,
+            dieta: dieta,
+            presenca: presenca,
+            habitat: {
+                id: id
+            }
+        };
+
+        // Chama a função para adicionar o animal na API
+        await adicionarAnimalNaApi(animal);
+    }); 
+});
+
+// Função só para enviar animal
+async function adicionarAnimalNaApi(animal) {
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Authorization': AUTH_HEADER,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(animal)
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao cadastrar animal: ' + response.statusText);
+        }
+
+        document.getElementById('mensagem').innerHTML = '<span style="color:green;">Animal cadastrado com sucesso!</span>';
+        document.getElementById('form-animal').reset();
+    } catch (error) {
+        document.getElementById('mensagem').innerHTML = '<span style="color:red;">' + error.message + '</span>';
+    }
+}
+
