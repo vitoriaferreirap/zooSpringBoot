@@ -4,60 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoo</title>
+    <title>Zoo Management System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <h1>Bem-vindo ao Zoo</h1>
-        <nav>
-            <ul>
-                <li><a href="#animais">Animais</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Bem-vindo ao Zoo</h1>
+            <nav>
+                <ul>
+                    <li><a href="#animais">Animais</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main>
         <section id="animais">
-            <h2>Nossos Animais</h2>
-            <dl>
-                <dt>Simba - O Rei Leão</dt>
-                <dd>Majestoso leão africano</dd>
-                <dd>Habitat: Savana</dd>
-                <dd>Dieta: Carnívoro</dd>
+            <div class="container">
+                <h2>Nossos Animais</h2>
+                <div class="animals-grid">
+                    <div class="animal-card">
+                        <h3>Simba - O Rei Leão</h3>
+                        <p class="description">Majestoso leão africano</p>
+                        <div class="animal-info">
+                            <span class="info-item"><strong>Habitat:</strong> Savana</span>
+                            <span class="info-item"><strong>Dieta:</strong> Carnívoro</span>
+                            <span class="info-item"><strong>Categoria:</strong> Mamífero</span>
+                        </div>
+                    </div>
 
-                <dt>Cesar - O Macaco Sábio</dt>
-                <dd>Macaco inteligente e ágil</dd>
-                <dd>Habitat: Floresta</dd>
-                <dd>Dieta: Onívoro</dd>
+                    <div class="animal-card">
+                        <h3>Cesar - O Macaco Sábio</h3>
+                        <p class="description">Macaco inteligente e ágil</p>
+                        <div class="animal-info">
+                            <span class="info-item"><strong>Habitat:</strong> Floresta</span>
+                            <span class="info-item"><strong>Dieta:</strong> Onívoro</span>
+                            <span class="info-item"><strong>Categoria:</strong> Mamífero</span>
+                        </div>
+                    </div>
 
-                <dt>Crush - A Tartaruga Marinha</dt>
-                <dd>Tartaruga tranquila e amigável</dd>
-                <dd>Habitat: Lago</dd>
-                <dd>Dieta: Herbívoro</dd>
-            </dl>
+                    <div class="animal-card">
+                        <h3>Crush - A Tartaruga Marinha</h3>
+                        <p class="description">Tartaruga tranquila e amigável</p>
+                        <div class="animal-info">
+                            <span class="info-item"><strong>Habitat:</strong> Lago</span>
+                            <span class="info-item"><strong>Dieta:</strong> Herbívoro</span>
+                            <span class="info-item"><strong>Categoria:</strong> Réptil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
         <section id="sobre">
-            <h2>Sobre o Zoo</h2>
-            <blockquote>
-                <p>"Nosso Zoo tem como missão preservar e educar sobre a vida selvagem, proporcionando um ambiente
-                    seguro para nossos animais e uma experiência única para nossos visitantes."</p>
-                <cite>- Diretor do Zoo</cite>
-            </blockquote>
+            <div class="container">
+                <h2>Sobre o Zoo</h2>
+                <blockquote>
+                    <p>"Nosso Zoo tem como missão preservar e educar sobre a vida selvagem, proporcionando um ambiente
+                        seguro para nossos animais e uma experiência única para nossos visitantes."</p>
+                    <cite>- Diretor do Zoo</cite>
+                </blockquote>
+            </div>
         </section>
-        <section id="sobre">
-            <h2>Sobre o Zoo</h2>
-            <blockquote>
-                <p>"Nosso Zoo tem como missão preservar e educar sobre a vida selvagem, proporcionando um ambiente
-                    seguro para nossos animais e uma experiência única para nossos visitantes."</p>
-                <cite>- Diretor do Zoo</cite>
-            </blockquote>
+
+        <section id="contato">
+            <div class="container">
+                <h2>Contato</h2>
+                <div class="contact-card">
+                    <address>
+                        <strong>Zoo da Cidade</strong><br>
+                        Rua dos Animais, 123<br>
+                        Jardim Selvagem - SP<br>
+                        CEP: 12345-678<br><br>
+                        <strong>Email:</strong> <a href="mailto:contato@zoo.com">contato@zoo.com</a><br>
+                        <strong>Telefone:</strong> <a href="tel:+551199999999">(11) 9999-9999</a>
+                    </address>
+                </div>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 Zoo. Todos os direitos reservados.</p>
+        <div class="container">
+            <p>&copy; 2025 Zoo Management System. Todos os direitos reservados.</p>
+        </div>
     </footer>
 </body>
 

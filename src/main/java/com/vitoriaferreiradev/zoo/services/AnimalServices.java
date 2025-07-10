@@ -8,6 +8,26 @@ import org.springframework.stereotype.Service;
 import com.vitoriaferreiradev.zoo.entities.Animal;
 import com.vitoriaferreiradev.zoo.repositories.AnimalRepository;
 
+/*
+ * Aplicando SOLID - DIP
+ * Codigo depende da interface AnimalRepository
+ * 
+ * Padrão Service Layer Pattern = Padão arquitetural:
+ * encapsula a lógica de negócios relacionada aos animais.
+ * 
+ * Serão implementados:
+ * Padrão comportamental:
+ * Aplicar Strategy: Validacoes por categoria
+ * 
+ * Padrão criacional:
+ * Aplicar Factory Method: Criando animais por especies
+ * Aplicar Builder: Construção complexa de objetos 
+ * 
+ * Padrões estruturais:
+ * Aplicar Facede: Simplificar operaçoes complexas - tranferencia de animal
+ * Aplicar Decorator:  add logs, cache
+ */
+
 @Service
 public class AnimalServices {
 
