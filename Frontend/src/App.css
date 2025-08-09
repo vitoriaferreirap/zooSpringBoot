@@ -1,42 +1,372 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* ===== RESET CSS E CONFIGURAÇÕES GERAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+:root {
+    --primary-color: #2d5a3d;
+    --secondary-color: #4a7c59;
+    --accent-color: #7fb069;
+    --light-green: #c7d2cc;
+    --background-color: #f8fffe;
+    --text-color: #333;
+    --light-text: #666;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
-.card {
-  padding: 2em;
+html {
+    scroll-behavior: smooth;
 }
 
-.read-the-docs {
-  color: #888;
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    position: relative;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+nav a:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    margin: 3rem 0;
+}
+
+section {
+    margin-bottom: 4rem;
+    scroll-margin-top: 100px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    font-weight: 600;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* ===== GRID DE ANIMAIS ===== */
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.animal-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.animal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(45, 90, 61, 0.15);
+    border-color: var(--accent-color);
+}
+
+.animal-card h3 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.animal-card .description {
+    color: var(--light-text);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.animal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item {
+    font-size: 0.95rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--light-green);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+/* ===== SEÇÃO SOBRE ===== */
+blockquote {
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-green) 100%);
+    border-left: 5px solid var(--accent-color);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: var(--border-radius);
+    font-style: italic;
+    max-width: 800px;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+blockquote p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+cite {
+    display: block;
+    text-align: right;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+/* ===== SEÇÃO CONTATO ===== */
+.contact-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 4px 15px var(--shadow);
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid var(--light-green);
+}
+
+address {
+    font-style: normal;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+address a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+address a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+footer p {
+    font-size: 0.95rem;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .animals-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .animal-card {
+        padding: 1.2rem;
+    }
+
+    blockquote {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    blockquote p {
+        font-size: 1.1rem;
+    }
+
+    .contact-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h2::after {
+        width: 40px;
+        height: 3px;
+    }
+
+    .animal-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .animal-card .description {
+        font-size: 0.9rem;
+    }
+
+    .info-item {
+        font-size: 0.9rem;
+    }
+
+    blockquote p {
+        font-size: 1rem;
+    }
+
+    .contact-card {
+        margin: 0 10px;
+    }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animal-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.animal-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.animal-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* ===== MELHORIAS DE ACESSIBILIDADE ===== */
+.animal-card:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+a:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* ===== STATES ADICIONAIS ===== */
+.animal-card:active {
+    transform: translateY(-4px);
+}
+
+nav a:active {
+    transform: translateY(0);
 }
