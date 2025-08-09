@@ -2,11 +2,13 @@
 const Animais = () => {
     return (
         <section id="animais">
-            <div class="container">
+            <div className="container">
                 <h2>Nossos Animais</h2>
-                <div class="animals-grid">
-                    <!-- Consumindo API -->
-                    <button onclick="carregarAnimaisDaApi()">Carregar Animais</button>
+                {/* Consumir API */}
+                <div className="animals-grid">
+                    {/* exibir animais vindo da API */}
+                    <p>Lista de animais será exibida aqui.</p>
+
                 </div>
             </div>
         </section>
