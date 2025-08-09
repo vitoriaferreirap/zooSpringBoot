@@ -6,7 +6,7 @@ import Home from './assets/components/pages/Home'
 function App() {
 
     return (
-        //criando navegação e rotas entre paginas 
+        //Rotas dos components
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
