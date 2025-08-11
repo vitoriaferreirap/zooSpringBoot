@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import type { Animal } from "../interfaces/interfaceAnimais";
 const { VITE_API_URL, VITE_API_USER, VITE_API_PASS } = import.meta.env;
 
@@ -7,9 +8,11 @@ const Animais = () => {
 
     //usando useState : estado inicial é um array vazio tipado
     const [animais, setAnimais] = useState<Animal[]>([]);
+    const navigate = useNavigate();
+
 
     //usando useMemo : para memorizar o cabeçalho de autenticação
-    const authHeader = useMemo(() => 'Basic ' + btoa(`${VITE_API_USER}:${VITE_API_PASS}`), [[VITE_API_USER, VITE_API_PASS]])
+    const authHeader = useMemo(() => 'Basic ' + btoa(`${VITE_API_USER}:${VITE_API_PASS}`), [VITE_API_USER, VITE_API_PASS])
 
     //usando useEffect(() => {}, []) : para consumir a API quando o componente for montado
     useEffect(() => {//funcao lambda - arrow fuction (forma de escrever)
@@ -33,28 +36,36 @@ const Animais = () => {
             }
         };
         fetchGetAnimais();
-    }, [authHeader]);// 
+    }, [authHeader]);//
+
+    //lida com click de editar
+    function handleEdit(animalId: number) {
+        //usar o navigate para navegar por id
+        navigate(`/FormsAnimais/${animalId}`);
+    }
 
     return (
         <section id="animais">
             <div className="container">
                 <h2>Nossos Animais</h2>
                 {/* Consumir API */}
-                <div className="animals-grid">
+                <div className="container-cards">
                     {/* exibir animais vindo da API */}
-                    <ul>
-                        {/*acessando array de animais recebidos da API */}
-                        {animais.length == 0 && <li>Nenhum animal encontrado.</li>}
-                        {animais.map((animal) => ( //para cada animal
-                            <li key={animal.id}>
-                                <h3>{animal.nome}</h3>
-                                <p>Categoria: {animal.categoria}</p>
-                                <p>Dieta: {animal.dieta}</p>
-                                <p>Presença: {animal.presenca}</p>
-                                <p>Habitat: {animal.habitat.id}</p>
-                            </li>
-                        ))}
-                    </ul>
+
+                    {/*acessando array de animais recebidos da API */}
+                    {animais.length == 0 && <li>Nenhum animal encontrado.</li>}
+                    {animais.map((animal) => ( //para cada animal
+                        <div key={animal.id} className="card-list">
+                            <h3>{animal.nome}</h3>
+                            <p>Categoria: {animal.categoria}</p>
+                            <p>Dieta: {animal.dieta}</p>
+                            <p>Presença: {animal.presenca}</p>
+                            <p>Habitat: {animal.habitat.id}</p>
+
+                            {/*ira enviar dados do animal para forms edição*/}
+                            <button onClick={() => handleEdit(animal.id)}>Editar</button>
+                        </div>
+                    ))}
 
                 </div>
             </div>

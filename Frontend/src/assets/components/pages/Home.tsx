@@ -12,7 +12,7 @@ const Home = () => {
                         <li><Link to="#sobre">Sobre</Link></li>
                         <li><Link to="#contato">Contato</Link></li>
                         {/* Ajuste para a rota da página de cadastro na sua SPA */}
-                        <li><Link to="/cadastro">Cadastrar Animal</Link></li>
+                        <li><Link to="/FormsAnimais">Cadastrar Animal</Link></li>
                     </ul>
                 </nav>
             </div>

@@ -1,0 +1,9 @@
+.container-cards {
+    border: solid 1px #c03131;
+    padding: 16px;
+}
+
+.card-list {
+    border: solid 1px #000000;
+    padding: 5px;
+}
