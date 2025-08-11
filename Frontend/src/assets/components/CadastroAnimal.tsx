@@ -1,37 +1,13 @@
-import { useState } from "react";
 const CadastroAnimal = () => {
     //tipagem, controler, cliks.
 
-    //tipos
-    type Presenca = 'PRESENTE' | 'AUSENTE';
-
-    //interface habitat
-    interface Habitat {
-        id: number;
-        nome: string;
-    }
-
-    //interface para o formulario de Animal
-    interface AnimalForm {
-        nome: string;
-        categoria: string;
-        dieta: string;
-        presenca: Presenca;
-        habitatId: number;
-    }
 
     //estado tipado do formulário
     //[acessar, alterar]
-    const [form, setForm] = useState<AnimalForm>({
-        nome: '',
-        categoria: '',
-        dieta: '',
-        presenca: 'PRESENTE',
-        habitatId: 0
-    });
 
     return (
         //formulario para cadastrar um animal
+        {/* 
         <form>
             <div className="form-group">
                 <label htmlFor="nome">Nome:</label>
@@ -59,6 +35,7 @@ const CadastroAnimal = () => {
             </div>
             <div className="form-group">
                 <label htmlFor="presenca">Presença:</label>
+                        
                 <select
                     id="presenca"
                     value={form.presenca}
@@ -78,8 +55,10 @@ const CadastroAnimal = () => {
                     <option value="3">Deserto</option>
                 </select>
 
+                
             </div>
         </form>
+        */}
     )
 }
 
